@@ -1,0 +1,106 @@
+/******************************************
+LAYOUT
+
+In your webpage there will be 3 layouts. Use percentages to 
+control the width of the <li> elements and the margins between them.
+
+1. Less than 600px - one column layout
+2. Between 600px and 1200px - two column layout
+3. Above 1200px - four column layout
+
+IMAGES
+
+Download these images - raw-images.zipView in a new window 
+Each image needs to be re-saved and optimized for the web using 
+either 96 or 72 dpi and saved at medium to high quality using 
+a web optimized format.
+
+Crop and convert each image into three sizes:
+Large: 800px width x 600px height - to be used when the page width is greater than 1500px.
+Medium: 600px width x 450px height - to be used when the page width is between 700px and 1500px
+Small: 400px width x 300px height - to be used when the page width is less than 700px
+
+These sizes should be used in your <source> elements.
+Use the medium size as the default for your <img> elements. 
+All your <picture> and <img> elements should be given a default
+max-width of 90% so that they can resize to fit their container.
+
+ATTRIBUTION
+
+Be sure to add the attribution to your images as a comment in either your CSS or HTML.
+All images used belong to:
+Markus Spiske - https://500px.com/markusspiske (Links to an external site.)Links to an external site. 
+Yinan Chen - https://500px.com/webmaster85 (Links to an external site.)Links to an external site. 
+Fahim Akhter - https://500px.com/fahimakhter (Links to an external site.)Links to an external site. 
+
+******************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto, Helvetica, Verdana, sans-serif;
+    line-height: 1.5;
+    background: #333;
+}
+
+ul {
+    padding: 10px;
+    list-style: none;
+}
+
+ul li {
+    float: left;
+    margin: 1%;
+    text-align: center;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+picture {
+    max-width: 90%;
+}
+
+img {
+    max-width: 90%;
+}
+
+/* activate animation and cursor on hover of any image */
+img:hover {
+    animation: bounce 1.5s .1s;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+/* custom bounce animation */
+@keyframes bounce {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.3); }
+    60% { transform: scale(0.6); }
+    80% { transform: scale(0.9) }
+    90% { transform: scale(0.85) }
+    100% { transform: scale(1) }
+}
+
+/* media query for one column */
+@media all and (max-width: 600px){
+    ul li {
+        width: 98%
+    }
+}
+
+/* media query for two columns */
+@media all and (min-width: 600px) and (max-width: 1200px){
+    ul li {
+        width: 48%;
+    }
+}
+
+/* media query for four columns */
+@media all and (min-width: 1200px){
+    ul li {
+        width: 23%;
+    }
+}
